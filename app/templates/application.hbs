@@ -1,7 +1,14 @@
+If stateful component is rendered within #each, changes to an argument
+cause it to reset its state.
+<br>
 To reproduce the behavior:
-1) press one or two '+' to expand the Collapsible components
-2) press 'Change titles'.
-3) See that the Collapsibles rerender and their tracked `open` attributes are reset.
+<ol>
+  <li>press one or two '+' to expand the Collapsible components</li>
+  <li>press 'Change titles'.</li>
+  <li>See that the Collapsibles rerender and their tracked `open` attributes are reset.</li>
+<ol>
+
+<br>
 
 <button
   {{on "click" this.changeTitles}}
@@ -14,3 +21,20 @@ To reproduce the behavior:
     @title={{title}}
   />
 {{/each}}
+
+
+<br><br>
+However, the Collapsible state does not change if it is not wrapped in `#each`.<br>
+If you expand the below Collapsible, then press "Change alternate title" below,
+you'll see the Collapsible does not reset its state (it stays open).
+<br>
+<button
+  {{on "click" this.changeAlternateTitle}}
+>
+  Change alternate title
+</button>
+<br>
+Alternate title:
+<Collapsible
+  @title={{this.alternateTitle}}
+/>

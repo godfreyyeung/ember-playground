@@ -12,11 +12,17 @@ export default class ApplicationController extends Controller {
     },
   ];
 
+  @tracked alternateTitle = { label: 'Pokemon' };
+
   @action changeTitles() {
     this.titles = this.titles.map((title) => {
       return  { label: title.label + '!'};
     });
 
     console.log("new titles:", this.titles);
+  }
+
+  @action changeAlternateTitle() {
+    this.alternateTitle = { label: this.alternateTitle.label + '!'};
   }
 }
