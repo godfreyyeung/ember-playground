@@ -1,5 +1,16 @@
-{{page-title "EmberPlayground"}}
+To reproduce the behavior:
+1) press one or two '+' to expand the Collapsible components
+2) press 'Change titles'.
+3) See that the Collapsibles rerender and their tracked `open` attributes are reset.
 
-<h2 id="title">Welcome to Ember</h2>
+<button
+  {{on "click" this.changeTitles}}
+>
+  Change titles
+</button>
 
-{{outlet}}
+{{#each this.titles as |title|}}
+  <Collapsible
+    @title={{title}}
+  />
+{{/each}}

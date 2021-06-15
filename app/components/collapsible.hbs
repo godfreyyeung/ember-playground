@@ -1,0 +1,11 @@
+<div>
+  {{#if this.open}}
+    {{@title.label}}
+  {{/if}}
+
+  <button
+    {{on "click" this.toggleOpen}}
+  >
+    {{if this.open "-" "+"}}
+  </button>
+</div>
